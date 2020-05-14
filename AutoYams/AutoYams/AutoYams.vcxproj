@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{D0301F18-5AF6-44F7-BA6F-649EFABF773B}</ProjectGuid>
+    <Keyword>QtVS_v302</Keyword>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+    <QtMsBuild Condition="'$(QtMsBuild)'=='' OR !Exists('$(QtMsBuild)\qt.targets')">$(MSBuildProjectDirectory)\QtMsBuild</QtMsBuild>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <Target Name="QtMsBuildNotFound" BeforeTargets="CustomBuild;ClCompile" Condition="!Exists('$(QtMsBuild)\qt.targets') or !Exists('$(QtMsBuild)\qt.props')">
+    <Message Importance="High" Text="QtMsBuild: could not locate qt.targets, qt.props; project may not build correctly." />
+  </Target>
+  <ImportGroup Label="ExtensionSettings" />
+  <ImportGroup Label="Shared" />
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="Debug OpenCV.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="Release OpenCV.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <ImportGroup Condition="Exists('$(QtMsBuild)\qt_defaults.props')">
+    <Import Project="$(QtMsBuild)\qt_defaults.props" />
+  </ImportGroup>
+  <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <QtInstall>msvc2015-64</QtInstall>
+    <QtModules>core;gui;widgets;xml</QtModules>
+  </PropertyGroup>
+  <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <QtInstall>msvc2015-64</QtInstall>
+    <QtModules>core;gui;widgets;xml</QtModules>
+  </PropertyGroup>
+  <ImportGroup Condition="Exists('$(QtMsBuild)\qt.props')">
+    <Import Project="$(QtMsBuild)\qt.props" />
+  </ImportGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>Disabled</Optimization>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <AdditionalIncludeDirectories>$(Qt_INCLUDEPATH_);%(AdditionalIncludeDirectories);$(OPENCV_DIR)\include;$(ProjectDir)include;$(ProjectDir)src;$(SolutionDir)AutoYams;$(SolutionDir)deps;</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <OutputFile>$(OutDir)\$(ProjectName).exe</OutputFile>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(Qt_LIBPATH_);%(AdditionalLibraryDirectories);$(OPENCV_DIR)\x64\vc14\lib;$(ProjectDir)include;$(ProjectDir)src;$(SolutionDir)AutoYams;</AdditionalLibraryDirectories>
+      <AdditionalDependencies>$(Qt_LIBS_);%(AdditionalDependencies);opencv_world343d.lib;</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <DebugInformationFormat />
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <AdditionalIncludeDirectories>$(Qt_INCLUDEPATH_);%(AdditionalIncludeDirectories);$(OPENCV_DIR)\include;$(ProjectDir)include;$(ProjectDir)src;$(SolutionDir)AutoYams;$(SolutionDir)deps;</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <OutputFile>$(OutDir)\$(ProjectName).exe</OutputFile>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(Qt_LIBPATH_);%(AdditionalLibraryDirectories);$(OPENCV_DIR)\x64\vc14\lib;$(ProjectDir)include;$(ProjectDir)src;$(SolutionDir)AutoYams;</AdditionalLibraryDirectories>
+      <AdditionalDependencies>$(Qt_LIBS_);%(AdditionalDependencies);opencv_world343.lib;</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\deps\DeviceEnumerator\src\DeviceEnumerator.cpp" />
+    <ClCompile Include="AutoYams.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="src\ConfigFile.cpp" />
+    <ClCompile Include="src\ConfigManager.cpp" />
+    <ClCompile Include="src\ConfigPage.cpp" />
+    <ClCompile Include="src\Dice.cpp" />
+    <ClCompile Include="src\DiceDetector.cpp" />
+    <ClCompile Include="src\FileDebug.cpp" />
+    <ClCompile Include="src\Game.cpp" />
+    <ClCompile Include="src\GamePage.cpp" />
+    <ClCompile Include="src\ImageOpenCV.cpp" />
+    <ClCompile Include="src\MenuPage.cpp" />
+    <ClCompile Include="src\PlayableMove.cpp" />
+    <ClCompile Include="src\Player.cpp" />
+    <ClCompile Include="src\Score.cpp" />
+    <ClCompile Include="src\Scoring.cpp" />
+    <ClCompile Include="src\VideoCaptureDevice.cpp" />
+    <ClCompile Include="src\VideoOpenCV.cpp" />
+    <ClCompile Include="src\VideoPage.cpp" />
+    <ClCompile Include="VideoCaptureWindow.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="AutoYams.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtUic Include="AutoYams.ui" />
+    <QtUic Include="VideoCapture.ui" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtRcc Include="AutoYams.qrc" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="include\AutoYams\core\page\Page.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="include\AutoYams\core\page\main\GamePage.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="include\AutoYams\core\page\main\MenuPage.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="include\AutoYams\core\page\AdvancedPage.h" />
+    <QtMoc Include="include\AutoYams\core\page\advanced\VideoPage.h" />
+    <QtMoc Include="VideoCaptureWindow.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="include\AutoYams\opencv\graphic\VideoOpenCV.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="include\AutoYams\opencv\graphic\ImageOpenCV.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\deps\DeviceEnumerator\include\DeviceEnumerator.h" />
+    <QtMoc Include="include\AutoYams\core\event\EventRedirector.h" />
+    <QtMoc Include="include\AutoYams\core\event\specifics\EventThrowDice.h" />
+    <ClInclude Include="include\AutoYams\core\exception\AbstractException.h" />
+    <ClInclude Include="include\AutoYams\core\exception\AdvancedException.h" />
+    <ClInclude Include="include\AutoYams\core\file\ConfigFile.h" />
+    <QtMoc Include="include\AutoYams\core\file\ConfigManager.h" />
+    <QtMoc Include="include\AutoYams\core\page\advanced\ConfigPage.h" />
+    <ClInclude Include="include\AutoYams\FileDebug.h" />
+    <ClInclude Include="include\AutoYams\gameplay\Dice.h" />
+    <QtMoc Include="include\AutoYams\opencv\DiceDetector.h" />
+    <QtMoc Include="include\AutoYams\gameplay\Game.h" />
+    <ClInclude Include="include\AutoYams\gameplay\PlayableMove.h" />
+    <ClInclude Include="include\AutoYams\gameplay\Player.h" />
+    <ClInclude Include="include\AutoYams\gameplay\Score.h" />
+    <ClInclude Include="include\AutoYams\gameplay\Scoring.h" />
+    <ClInclude Include="include\AutoYams\opencv\VideoCaptureDevice.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
+    <Import Project="$(QtMsBuild)\qt.targets" />
+  </ImportGroup>
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

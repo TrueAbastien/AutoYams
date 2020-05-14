@@ -1,0 +1,26 @@
+{
+    "config": {
+        "all": [
+            {
+                "name": "default",
+                "path": "default"
+            }
+        ],
+        "default": "default"
+    },
+    "device": {
+        "all": [
+            {
+                "configs": [
+                    {
+                        "name": "default",
+                        "surename": "default"
+                    }
+                ],
+                "default": "default",
+                "name": "Mic26000"
+            }
+        ],
+        "default": "Mic26000"
+    }
+}
