@@ -44,9 +44,13 @@ Durant le cours de l'application, partiellement dû à des difficultés techniqu
 
 Il vous est possible, et recommander, de vérifier et configurer vos paramètres images dans l'onglet **Edit > Video** sur l'application pour vous assurez que chacun des dés apparaissent correctement. Les contours des dés devraient apparaître en **vert** et leurs points en **rouge**. Si n'importe quel autre élément que les dés apparaissent à l'image, les dés ne seront pas effectivement reconnus.
 
-![Mauvais exemple - trop sombre](/Images/bad-example-1.png)
-![Mauvais exemple - trop lumineux](/Images/bad-example-2.png)
-![Bon exemple - 5 dés trouvés](/Images/good-example.png)
+
+<p align="center">
+	<img src="/Images/bad-example-1.png" />
+	<img src="/Images/bad-example-2.png" />
+	<img src="/Images/good-example.png" />
+</p>
+
 
 ## Fonctionnement
 
@@ -55,11 +59,19 @@ Afin de pouvoir jouer localement sur une seule application (ce qui est actuellem
 ### Comment jouer
 
 Vous commencerez sur la page de **Menu** suivante:
-![Page de Menu](/Images/menu.png)
+
+<p align="center">
+	<img src="/Images/menu.png" />
+</p>
+
 Il est ici possible d'ajouter un nom sur la champ d'édition en bas du menu puis, en appuyant sur le bouton adjoint, d'ajouter le nom à la liste des joueurs si le nom a **au moins 3 caractères** et **est unique**.
 Lorsque vous avez **au moins 2 joueurs**, appuyer sur **_Start Game_** pour commencer à jouer.
 
-![Page de Jeu](/Images/game.png)
+
+<p align="center">
+	<img src="/Images/game.png" />
+</p>
+
 En entrant sur la page de **Jeu**, vous allez devoir configurer votre **méthode d'entrer**.
 Par défaut cette dernière est mise sur **automatique**. Pour la changer, appuyer sur **Edit > Input** et sélectionner votre méthode d'entrer.
 * *Manuel*: vous permet de relancer aléatoirement **tout** vos dés.
@@ -77,10 +89,18 @@ Les éléments graphiques seront automatiquement mis à jour au cours du jeu.
 ### Configuration
 
 Afin de configurer votre lecture des dés, ouvrez le fenêtre de **Configuration Vidéo** en appuyant sur **Edit > Video**. Vous serez automatiquement rediriger vers la page **Vidéo** avec la sortie d'image et de l'algorithme de détection que vous pouvez consulter en temps réel durant le jeu.
-![Page Vidéo](/Images/video.png)
+
+<p align="center">
+	<img src="/Images/video.png" />
+</p>
+
 
 Vous avez, sure cette fenêtre, la possibilité de changer votre **caméra actuelle (device)** et votre **configuration**. Chaque configuration s'exprime, physiquement, sous forme d'un fichier, au format non reconnu **.config**, dans les fichiers locaux.
-![Fichier .config](/Images/file.png)
+
+<p align="center">
+	<img src="Images/file.png" />
+</p>
+
 Tel qu'illustré, chaque configuration contient les 4 informations suivantes:
 * *Brightness* (luminosité)
 * *Contrast* (contraste)
@@ -90,10 +110,18 @@ Tel qu'illustré, chaque configuration contient les 4 informations suivantes:
 	À la fermeture de l'application ou lors du changement de configuration ou de *device*, la configuration sélectionnée sera automatiquement mise à jour.
 
 En utilisant la page **Config** sur la même fenêtre, il vous sera possible de créer de nouvelle fenêtre (avec **add**), de relier une configuration existante à l'un de vos *device* (avec **set**) et de changer la configuration par défaut de votre *device* ainsi que le *device* par défaut de votre application avec les boutons **make** (permettant à ces derniers d'être automatiquement chargé lorsque vous démarrer votre application). Si votre *device* ne peut pas être chargée à l'ouverture, le caméra par défaut redeviendra **_'none'_**, signifiant qu'aucune caméra ne sera chargé par défaut.
-![Page Config](/Images/config.png)
+
+<p align="center">
+	<img src="/Images/config.png" />
+</p>
+
 
 Chacune des configurations et des *devices* ayant déjà été utilisé sur votre application seront stockées dans un fichier local: **'_config.json_'**.
-![Fichier JSON](/Images/json.png)
+
+<p align="center">
+	<img src="/Images/json.png" />
+</p>
+
 
 ## Problèmes
 
