@@ -1,5 +1,7 @@
 #include <AutoYams\core\page\advanced\VideoPage.h>
 
+#include <AutoYams\core\exception\AdvancedException.h>
+
 VideoPage::VideoPage(AutoYams * app, VideoCaptureWindow * ref)
 	: AdvancedPage(0, app, ref)
 {
@@ -20,7 +22,6 @@ void VideoPage::handle()
 
 bool VideoPage::pressOkButton()
 {
-	//
 	return true;
 }
 
@@ -32,7 +33,6 @@ void VideoPage::selectDevice(int index)
 
 void VideoPage::selectConfig(int index)
 {
-	//
 }
 
 void VideoPage::changeBrightness(int val)

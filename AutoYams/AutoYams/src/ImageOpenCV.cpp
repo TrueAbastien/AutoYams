@@ -34,9 +34,6 @@ void ImageOpenCV::setScale(double val)
 
 QList<int> ImageOpenCV::asDices()
 {
-	/*QList<int> content = detector.get(image, image), res;
-	for (int ii = 0; ii < 6; ++ii) res.append(0);
-	for (int dice : content) res[dice - 1] ++;*/
 	auto res = detector.get(image, image);
 	Update();
 	return res;

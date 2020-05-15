@@ -69,5 +69,4 @@ void VideoOpenCV::setZoom(double val)
 void VideoOpenCV::turnOff()
 {
 	container->setPixmap(QPixmap());
-	//container->setText(container->text());
 }

@@ -1,3 +1,14 @@
 ﻿  AutoYams.cpp
-  AutoYams.vcxproj -> C:\Users\legb\Documents\Visual Studio 2015\Projects\AutoYams\x64\Debug\AutoYams.exe
-  AutoYams.vcxproj -> C:\Users\legb\Documents\Visual Studio 2015\Projects\AutoYams\x64\Debug\AutoYams.pdb (Full PDB)
+  VideoCaptureWindow.cpp
+  ConfigFile.cpp
+  ConfigManager.cpp
+  ConfigPage.cpp
+  Dice.cpp
+  Game.cpp
+  GamePage.cpp
+  MenuPage.cpp
+  VideoPage.cpp
+  moc_GamePage.cpp
+  moc_Game.cpp
+  AutoYams.vcxproj -> C:\Users\legb\Documents\Git Projects\AutoYams\AutoYams\x64\Debug\AutoYams.exe
+  AutoYams.vcxproj -> C:\Users\legb\Documents\Git Projects\AutoYams\AutoYams\x64\Debug\AutoYams.pdb (Full PDB)

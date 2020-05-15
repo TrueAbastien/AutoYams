@@ -3,12 +3,18 @@
 #include <QTextStream>
 #include <sstream>
 
+#include <AutoYams\core\exception\AdvancedException.h>
+
 
 ConfigFile::ConfigFile(QString fileName)
 {
+	// Load file if possible
 	if (!fileName.isEmpty())
+	{
 		Load(fileName);
+	}
 
+	// Define default rules
 	setRules({ "brightness","contrast","framerate","zoom" });
 }
 
@@ -19,9 +25,11 @@ ConfigFile::~ConfigFile()
 
 void ConfigFile::Load(QString file)
 {
+	// Close if already opened
 	if (this->isOpen())
 		this->close();
 
+	// Open New file
 	this->setFileName("Resources/config/" + file + ".config");
 	this->open(QFile::ReadWrite | QFile::Text | QFile::ExistingOnly);
 }
@@ -40,9 +48,11 @@ void ConfigFile::addRules(QStringList _rules)
 
 bool ConfigFile::readFile()
 {
+	// Verify if opened
 	if (!isOpen())
 		return false;
 
+	// Read every line to get data
 	std::string line, value;
 	QString processedValue;
 	QTextStream in(this);
@@ -73,9 +83,11 @@ bool ConfigFile::readFile()
 
 bool ConfigFile::writeFile()
 {
+	// Verify is opened
 	if (!isOpen())
 		return false;
 
+	// Write data
 	this->resize(0);
 	QString processedValue;
 	QTextStream out(this);
@@ -105,6 +117,7 @@ QString ConfigFile::Debug() const
 
 QString ConfigFile::Create(QString fileName)
 {
+	// Verify if the file exists
 	QFile newConfig("Resources/config/" + fileName + ".config");
 	newConfig.open(QFile::ExistingOnly);
 	if (newConfig.isOpen())
@@ -113,9 +126,11 @@ QString ConfigFile::Create(QString fileName)
 		return "";
 	}
 
+	// Create new file
 	newConfig.open(QFile::ReadWrite | QFile::Text);
 	newConfig.close();
 
+	// Set the file basic content
 	ConfigFile file(fileName);
 	file.set("brightness", "0");
 	file.set("contrast", "1");

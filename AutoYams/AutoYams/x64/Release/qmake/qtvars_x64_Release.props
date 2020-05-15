@@ -5,7 +5,7 @@
 <Qt_LIBS_>C:\Qt\5.12.7\msvc2015_64\lib\Qt5Widgets.lib;C:\Qt\5.12.7\msvc2015_64\lib\Qt5Gui.lib;C:\Qt\5.12.7\msvc2015_64\lib\Qt5Xml.lib;C:\Qt\5.12.7\msvc2015_64\lib\Qt5Core.lib;C:\Qt\5.12.7\msvc2015_64\lib\qtmain.lib;shell32.lib</Qt_LIBS_>
 <Qt_LIBPATH_>C:\openssl\lib;C:\Utils\my_sql\mysql-5.6.11-winx64\lib;C:\Utils\postgresql\pgsql\lib</Qt_LIBPATH_>
 <Qt_INCLUDEPATH_
-      >$(Qt_INCLUDEPATH_);x64\Release\moc;x64\Release\moc\include\AutoYams\core\page;x64\Release\moc\include\AutoYams\core\page\main;x64\Release\moc\include\AutoYams\core\page\advanced;x64\Release\moc\include\AutoYams\opencv\graphic;x64\Release\moc\include\AutoYams\core\event;x64\Release\moc\include\AutoYams\core\event\specifics;x64\Release\moc\include\AutoYams\opencv;x64\Release\moc\include\AutoYams\gameplay;x64\Release\uic</Qt_INCLUDEPATH_>
+      >$(Qt_INCLUDEPATH_);x64\Release\moc;x64\Release\moc\include\AutoYams\core\page;x64\Release\moc\include\AutoYams\core\page\main;x64\Release\moc\include\AutoYams\core\page\advanced;x64\Release\moc\include\AutoYams\opencv\graphic;x64\Release\moc\include\AutoYams\core\event;x64\Release\moc\include\AutoYams\core\event\specifics;x64\Release\moc\include\AutoYams\core\file;x64\Release\moc\include\AutoYams\opencv;x64\Release\moc\include\AutoYams\gameplay;x64\Release\uic</Qt_INCLUDEPATH_>
     <QtBkup_QtInstall
       >msvc2015-64</QtBkup_QtInstall>
     <QtBkup_QtModules

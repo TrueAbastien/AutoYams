@@ -1,5 +1,7 @@
 #include <AutoYams\core\page\main\MenuPage.h>
 
+#include <AutoYams\core\exception\AdvancedException.h>
+
 MenuPage::MenuPage(AutoYams* ref)
 	: Page(0, ref)
 {
@@ -23,9 +25,11 @@ void MenuPage::addPlayer()
 {
 	QString player = app->ui.menu_playerName->text();
 	if (player.length() >= 3)
+	{
 		if (app->ui.menu_playerList->findItems(player, Qt::MatchFixedString).isEmpty())
 		{
 			app->ui.menu_playerList->addItem(player);
 			app->ui.menu_playerName->clear();
 		}
+	}
 }

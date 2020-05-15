@@ -1,12 +1,11 @@
 #include <AutoYams\gameplay\Dice.h>
 
-#include <AutoYams\FileDebug.h> //DEBUG
+#include <AutoYams\core\exception\AdvancedException.h>
 
 void Dice::roll()
 {
 	if (selected)
 		currentValue = qrand() % 6 + 1;
-	//FileDebug::write(QString::number(currentValue)); //DEBUG
 }
 
 int Dice::getValue() const

@@ -1,11 +1,15 @@
 #include <AutoYams\core\file\ConfigManager.h>
 #include <QJsonArray>
 
+#include <AutoYams\core\exception\AdvancedException.h>
+
 ConfigManager::ConfigManager()
 {
+	// Open file
 	file.setFileName("Resources/config/config.json");
 	file.open(QFile::ReadWrite | QFile::Text | QFile::ExistingOnly);
 
+	// Read JSON content
 	this->read();
 }
 
@@ -17,10 +21,11 @@ ConfigManager::~ConfigManager()
 
 void ConfigManager::read()
 {
+	// Read and throw errors
 	QJsonParseError error;
 	buffer = QJsonDocument::fromJson(file.readAll(), &error);
-	// TODO: error handling
 
+	// Select root object of buffer
 	root = buffer.object();
 	file.close();
 }
@@ -213,10 +218,13 @@ void ConfigManager::removeDefaultConfig()
 
 void ConfigManager::save()
 {
+	// Open file for modification
 	file.open(QFile::WriteOnly | QFile::Text | QFile::Truncate);
 
+	// Write the content
 	buffer.setObject(root);
 	file.write(buffer.toJson());
 
+	// Close the opened file
 	file.close();
 }

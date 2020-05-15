@@ -1,8 +1,6 @@
 #include <AutoYams\core\page\main\GamePage.h>
 #include <QFile>
 
-#include <AutoYams\FileDebug.h> // DEBUG
-
 GamePage::GamePage(AutoYams* ref)
 	: Page(1, ref)
 {
@@ -53,6 +51,10 @@ GamePage::GamePage(AutoYams* ref)
 		reset();
 		app->ui.pagination->setCurrentIndex(0);
 	});
+
+	// Connect game actions (once only)
+	connect(app->ui.game_nextThrow, SIGNAL(pressed()), this, SLOT(playerThrow()));
+	connect(app->ui.game_nextPlayer, SIGNAL(pressed()), this, SLOT(playerAccept()));
 }
 
 int GamePage::addRow(unsigned int amount)
@@ -91,8 +93,7 @@ void GamePage::handle()
 	game = new Game(playerIndex.keys());
 	resetDices();
 
-	connect(app->ui.game_nextThrow, SIGNAL(pressed()), this, SLOT(playerThrow()));
-	connect(app->ui.game_nextPlayer, SIGNAL(pressed()), this, SLOT(playerAccept()));
+	// Connect game actions (every new game)
 	connect(game, SIGNAL(end()), this, SLOT(endGame()));
 	app->event_diceThrown->setReceiver(this);
 	

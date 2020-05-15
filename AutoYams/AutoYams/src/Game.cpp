@@ -165,8 +165,6 @@ Game::Game(QStringList _players)
 			result += dice->getValue();
 		return result;
 	});
-
-	//auto res = bestCurrentPlayerMoves(); //DEBUG
 }
 
 
@@ -208,7 +206,6 @@ bool Game::Play(QString name)
 bool Game::isEnd() const
 {
 	return turn >= 10;
-	//return turn >= 2;
 }
 
 void Game::NextThrow()
@@ -219,7 +216,6 @@ void Game::NextThrow()
 		currentPlayerThrow++;
 		emit thrown();
 	}
-	//throw GameException("You cannot throw again !");
 }
 
 void Game::NextPlayer()
@@ -262,7 +258,6 @@ void Game::setDices(QList<int> _dices)
 	if (_dices.size() == dices.size())
 		for (int ii = 0; ii < 5; ++ii)
 			dices[ii]->setValue(_dices[ii]);
-	else throw GameException("There's not enough dices !");
 }
 
 Player * Game::winningPlayer() const

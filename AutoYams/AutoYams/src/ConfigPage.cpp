@@ -1,21 +1,25 @@
 #include <AutoYams\core\page\advanced\ConfigPage.h>
 
+#include <AutoYams\core\exception\AdvancedException.h>
+
 ConfigPage::ConfigPage(AutoYams* app, VideoCaptureWindow* ref)
 	: AdvancedPage(1, app, ref)
 {
+	// Connect config modification events
 	connect(wnd->ui.config_addBtn, SIGNAL(pressed()), this, SLOT(addConfig()));
 	connect(wnd->ui.config_setBtn, SIGNAL(pressed()), this, SLOT(setConfig()));
 
+	// Connect default setters
 	connect(wnd->ui.config_defaultDeviceBtn, SIGNAL(pressed()), this, SLOT(setDefaultDevice()));
 	connect(wnd->ui.config_defaultConfigBtn, SIGNAL(pressed()), this, SLOT(setDefaultConfig()));
 
+	// Connect refresh on modifier
 	connect(wnd->ui.config_addBtn, SIGNAL(pressed()), wnd, SLOT(refreshConfigList()));
 	connect(wnd->ui.config_setBtn, SIGNAL(pressed()), wnd, SLOT(refreshConfigList()));
 }
 
 void ConfigPage::handle()
 {
-	//
 	updateConfigCB();
 }
 

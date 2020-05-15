@@ -6,7 +6,7 @@ FileDebug* FileDebug::instance = nullptr;
 FileDebug::FileDebug()
 	: output("output.txt")
 {
-	output.open(QFile::ReadWrite | QFile::Text | QFile::ExistingOnly | QFile::Append);
+	output.open(QFile::WriteOnly | QFile::Text | QFile::Append);
 	output.resize(0);
 }
 

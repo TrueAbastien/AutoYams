@@ -5,12 +5,12 @@
 
 /**
 * \class ImageOpenCV
-* \brief Objet-widget couvrant un QLabel en tant qu'image OpenCV
+* \brief Object setting a Label Pixmap with the current image
 * \author Bastien LEGOY
 * \version 1.0.0
-* \date $Date: 2020/04/09 $
+* \date $Date: 2020/05/15 $
 *
-* Image OpenCV (cv::mat) appliquée sur un QLabel à l'aide la Pixmap.
+* Image OpenCV (cv::Mat) used on QLabel to modify QPixMap.
 */
 class ImageOpenCV : public QObject
 {
@@ -19,57 +19,81 @@ class ImageOpenCV : public QObject
 public:
 
 	/**
-	* \brief Constructeur par défaut
-	* \param lab Label sur lequel appliqué l'image
+	* \brief Default constructor
+	* \param lab Label on which to apply current Image
 	*
-	* Instantie l'image en sauvegardant le Label en membre.
+	* Instantiate image by saving Label.
 	*/
 	explicit ImageOpenCV(QLabel* lab);
 
 
 	/**
-	* \brief Accesseur sur l'image OpenCV sauvegardée
-	* \return Image sauvegardée
+	* \brief Accessor on current Image
+	* \return Current Image
 	*
-	* Récupère l'image sauvegardée en tant que membre de l'instance.
+	* Get currently saved image.
 	*/
 	cv::Mat getImage() const;
 
 	/**
-	* \brief Vérifie la présence d'une image
-	* \return Résultat de la vérification
+	* \brief Verify if an Image is saved
+	* \return Result of verification
 	*
-	* Est Vrai si l'instance possède une image cv::Mat en mémoire.
+	* Is True if a cv::Mat image is saved.
 	*/
 	bool exists() const;
 
+	/**
+	* \brief Setter of current Image Scale
+	* \param val New image scale
+	*
+	* Change current Image scale to the new sepcified value.
+	*/
 	void setScale(double val);
 
+	/**
+	* \brief Run current algorithm to detect any Dice
+	* \return List of all dice-value found
+	*
+	* Run through the currently specified algorithm to find any Dice & their value on the currently saved image.
+	*/
 	QList<int> asDices();
 
 private:
 
+	/**
+	* Saved label on which to apply the image.
+	*/
 	QLabel* content;
+	/**
+	* Saved image to process and display.
+	*/
 	cv::Mat image;
 
+	/**
+	* Current scale/zoom of the displayed image.
+	*/
 	double scale;
 
+	/**
+	* Detector/algorithm to process image and find dices in.
+	*/
 	DiceDetector detector;
 
 public slots:
 
 	/**
-	* \brief Change l'image actuelle par celle spécifiée
-	* \param img Image spécifiée
+	* \brief Modify actual image by the specified one
+	* \param img Image specified
 	*
-	* Utilisé dans la réinitialisation d'image pour cloner une image déja présente sur l'écran.
+	* Used in the update of current picture if necessary (ie. use of a video-device thingy...).
 	*/
 	void setImage(cv::Mat img);
 
 	/**
-	* \brief Met à jour l'affichage de l'image actuelle.
+	* \brief Update of current image display
 	*
-	* Applique sur la Pixmap du QLabel l'image actuellement stockée en membre de l'instance, modifié ou non.
+	* Apply on Label Pixmap the currently saved image, even if not modified.
 	*/
 	void Update();
 };

@@ -1,19 +1,13 @@
-﻿  uic AutoYams.ui
-  moc include\AutoYams\core\page\main\GamePage.h
-  moc include\AutoYams\gameplay\Game.h
-  AutoYams.cpp
+﻿  AutoYams.cpp
   VideoCaptureWindow.cpp
-  main.cpp
+  ConfigFile.cpp
+  ConfigManager.cpp
+  ConfigPage.cpp
+  Dice.cpp
   Game.cpp
   GamePage.cpp
   MenuPage.cpp
   VideoPage.cpp
-  moc_VideoPage.cpp
   moc_GamePage.cpp
-  moc_MenuPage.cpp
-  moc_AdvancedPage.cpp
-  moc_Page.cpp
   moc_Game.cpp
-  moc_AutoYams.cpp
-  moc_VideoCaptureWindow.cpp
-  AutoYams.vcxproj -> C:\Users\legb\Documents\Visual Studio 2015\Projects\AutoYams\x64\Release\AutoYams.exe
+  AutoYams.vcxproj -> C:\Users\legb\Documents\Git Projects\AutoYams\AutoYams\x64\Release\AutoYams.exe

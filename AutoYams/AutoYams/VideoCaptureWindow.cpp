@@ -4,6 +4,8 @@
 #include <AutoYams\core\page\advanced\VideoPage.h>
 #include <AutoYams\core\page\advanced\ConfigPage.h>
 
+#include <AutoYams\core\exception\AdvancedException.h>
+
 
 VideoCaptureWindow::VideoCaptureWindow(AutoYams * wnd)
 	: QDialog(nullptr), app(wnd)
@@ -27,7 +29,6 @@ VideoCaptureWindow::VideoCaptureWindow(AutoYams * wnd)
 	allPages.append(new VideoPage(app, this));
 	allPages.append(new ConfigPage(app, this));
 
-	//setCurrentPage(0);
 	refreshDeviceList();
 
 	this->close();
@@ -55,7 +56,9 @@ void VideoCaptureWindow::closeEvent(QCloseEvent * _event)
 void VideoCaptureWindow::setCurrentPage(int pageID)
 {
 	if (pageID < 0 || pageID >= allPages.length())
+	{
 		currentPage = nullptr;
+	}
 	else
 	{
 		currentPage = allPages[pageID];
@@ -170,7 +173,6 @@ void VideoCaptureWindow::changeBrightness(int val)
 	if (currentPage != nullptr)
 	{
 		currentPage->changeBrightness(val);
-		//configFile->set("brightness", QString::number(val));
 	}
 }
 
@@ -179,7 +181,6 @@ void VideoCaptureWindow::changeContrast(int val)
 	if (currentPage != nullptr)
 	{
 		currentPage->changeContrast(val);
-		//configFile->set("contrast", QString::number(val));
 	}
 }
 
@@ -188,7 +189,6 @@ void VideoCaptureWindow::changeFramerate(int val)
 	if (currentPage != nullptr)
 	{
 		currentPage->changeFramerate(val);
-		//configFile->set("framerate", QString::number(val));
 	}
 }
 
@@ -198,6 +198,5 @@ void VideoCaptureWindow::changeZoom(int val)
 	if (currentPage != nullptr)
 	{
 		currentPage->changeZoom(newVal);
-		//configFile->set("zoom", QString::number(newVal));
 	}
 }
