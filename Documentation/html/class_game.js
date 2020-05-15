@@ -1,0 +1,25 @@
+var class_game =
+[
+    [ "Game", "class_game.html#afcf3d006df9edabfa96bf82f6d534d98", null ],
+    [ "~Game", "class_game.html#ae3d112ca6e0e55150d2fdbc704474530", null ],
+    [ "bestCurrentPlayerMoves", "class_game.html#a13d4c2e507d46d7f3a011f8c3f405fad", null ],
+    [ "clickDice", "class_game.html#a088eaa4041b33e7142d220e1bf3d02a0", null ],
+    [ "currentScoreOf", "class_game.html#aec0e2117936943327220e3b386912601", null ],
+    [ "end", "class_game.html#aa2d938aa918268060e63980c7efd86f8", null ],
+    [ "getCurrentPlayer", "class_game.html#ac20be826323eca6ba04774f0661111a3", null ],
+    [ "getCurrentThrow", "class_game.html#a55afa234a613f083265b630496eb1010", null ],
+    [ "getCurrentTurn", "class_game.html#aed763781d92e458110f9e1cd0b1f39df", null ],
+    [ "getDice", "class_game.html#a5c37e7e25e1ed95728a5f5e53438ecbd", null ],
+    [ "isEnd", "class_game.html#a2566f1a3347b504ea33cad0b2a33e6c0", null ],
+    [ "isLastTurn", "class_game.html#a4efc0cc891ff43da422360204eb9a41c", null ],
+    [ "newPlayer", "class_game.html#ae1fc9e54e27a2c46c46177e2c4c823ed", null ],
+    [ "newTurn", "class_game.html#a3404b4384d9f0fdf7787c27ccee853d4", null ],
+    [ "NextPlayer", "class_game.html#a4d60990917ea533b60fbbb6d299c6292", null ],
+    [ "NextThrow", "class_game.html#af4173abdbb67a5dc88e6191ed8141612", null ],
+    [ "NextTurn", "class_game.html#a53ecb0586e4a15c87ea454eb72d0b385", null ],
+    [ "Play", "class_game.html#a8bb6e7befb44225ac9ad55634b589759", null ],
+    [ "roll", "class_game.html#ad9910e2f8a020a7f69a048ffb444b5ca", null ],
+    [ "setDices", "class_game.html#a56e9ec41df920d0e727bb0b42d8ef050", null ],
+    [ "thrown", "class_game.html#ac9819b3896d7f7cc64caec18080c5bb6", null ],
+    [ "winningPlayer", "class_game.html#a236f4cb8f39775e6aac9908fbe2928f2", null ]
+];

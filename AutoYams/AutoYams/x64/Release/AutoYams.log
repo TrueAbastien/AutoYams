@@ -1,5 +1,6 @@
 ﻿  AutoYams.cpp
   VideoCaptureWindow.cpp
+  main.cpp
   ConfigFile.cpp
   ConfigManager.cpp
   ConfigPage.cpp
